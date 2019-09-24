@@ -2,10 +2,14 @@ require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
 const POKEDEX = require("./pokedex.json");
+const cors = require("cors");
+const helmet = require("helmet");
 
 const app = express();
 
 app.use(morgan("dev"));
+app.use(helmet());
+app.use(cors());
 
 console.log(process.env.API_TOKEN);
 
